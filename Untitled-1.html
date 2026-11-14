@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Isra ❤️</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: radial-gradient(circle, #441326, #100610 75%);
+        color: white;
+        font-family: Georgia, serif;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .stars {
+        position: fixed;
+        inset: 0;
+        background-image: radial-gradient(#fff 1px, transparent 1px);
+        background-size: 75px 75px;
+        opacity: 0.3;
+        animation: moveStars 15s linear infinite;
+      }
+
+      @keyframes moveStars {
+        to {
+          background-position: 150px 150px;
+        }
+      }
+
+      .container {
+        z-index: 2;
+        text-align: center;
+        padding: 20px;
+        width: 100%;
+      }
+
+      h1 {
+        color: #ffafc7;
+        letter-spacing: 3px;
+        font-size: clamp(25px, 5vw, 40px);
+        margin-bottom: 12px;
+      }
+
+      .subtitle {
+        color: #eab4c7;
+        margin-bottom: 25px;
+      }
+
+      #heart {
+        width: 340px;
+        height: 310px;
+        max-width: 95vw;
+        position: relative;
+        margin: auto;
+      }
+
+      .name {
+        position: absolute;
+        font-family: Georgia, serif;
+        font-size: 11px;
+        font-weight: bold;
+        color: #ff83ad;
+        text-shadow: 0 0 8px #ff2868, 0 0 15px #ff2868;
+        opacity: 0;
+        transform: scale(0);
+        animation: appear 0.7s forwards;
+        white-space: nowrap;
+      }
+
+      @keyframes appear {
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      #message {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: 1.5s ease;
+        margin: 20px auto;
+        max-width: 550px;
+      }
+
+      #message.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #message h2 {
+        color: #ff91b5;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      #message p {
+        color: #ffe0e9;
+        line-height: 2;
+        font-size: 18px;
+        margin: 12px 0;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 13px 28px;
+        border: 1px solid #ff91b5;
+        border-radius: 30px;
+        background: linear-gradient(45deg, #9e1745, #ef4b7b);
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 25px #ff416c;
+      }
+
+      .floating {
+        position: fixed;
+        bottom: -30px;
+        animation: floatUp 7s linear forwards;
+        pointer-events: none;
+      }
+
+      @keyframes floatUp {
+        to {
+          transform: translateY(-110vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="stars"></div>
+
+    <div class="container">
+      <h1>Something Special ❤️</h1>
+      <div class="subtitle">Just for you, Isra ✨</div>
+
+      <div id="heart"></div>
+
+      <div id="message">
+        <h2>Isra ❤️</h2>
+
+        <p>
+          Isra,na3ref ili inti met7ebinich w ili menetsawerech ken bech t7ibini
+          nhar ama ena 7abit n9olik ili rani n7ibik w 3omri meni bech nansek
+        </p>
+
+        <p>
+          w men7eblik ken l5ir w ken l7aja ili tfar7ik w nitmanek dima tabdi
+          lebes w far7ana ❤️
+        </p>
+
+        <p>cadeau 5fif hedha 9olit belekchi yi3ijbik chwaya</p>
+
+        <p style="color: #ff91b5; font-size: 22px">
+          Isra... اسمك حكاية وحدو. 💗
+        </p>
+
+        <button onclick="showMore()">عندي حاجة أخرى نقولهالك 💌</button>
+
+        <p id="extra" class="hidden">
+          n7ibik akther medenya w mefeha w 3omri meni bech nansek ❤️
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const heart = document.getElementById("heart");
+
+      const total = 180;
+
+      for (let i = 0; i < total; i++) {
+        const t = (Math.PI * 2 * i) / total;
+
+        const x = 16 * Math.pow(Math.sin(t), 3);
+
+        const y = -(
+          13 * Math.cos(t) -
+          5 * Math.cos(2 * t) -
+          2 * Math.cos(3 * t) -
+          Math.cos(4 * t)
+        );
+
+        const word = document.createElement("span");
+
+        word.className = "name";
+        word.textContent = "ISRA";
+
+        word.style.left = `calc(50% + ${x * 8}px)`;
+        word.style.top = `calc(50% + ${y * 8}px)`;
+
+        word.style.animationDelay = `${i * 0.035}s`;
+
+        heart.appendChild(word);
+      }
+
+      setTimeout(() => {
+        document.getElementById("message").classList.add("show");
+      }, total * 35 + 1500);
+
+      function createHeart() {
+        const h = document.createElement("div");
+
+        h.className = "floating";
+        h.textContent = ["❤️", "💕", "💗", "✨"][Math.floor(Math.random() * 4)];
+
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.fontSize = "20px";
+
+        document.body.appendChild(h);
+
+        setTimeout(() => h.remove(), 7000);
+      }
+
+      setInterval(createHeart, 700);
+
+      function showMore() {
+        document.getElementById("extra").classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
